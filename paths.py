@@ -19,10 +19,10 @@ def getbusname(t,trips,route): #Helper function to get the busname from trip_id
                           
 
 def directpath(srcid,destid):
-    stoptimes=pd.read_csv('/Users/shikhararora/Desktop/IIITD_app/static/stop_times.txt')
-    route=pd.read_csv('/Users/shikhararora/Desktop/IIITD_app/static/routes.txt')
-    stopnames=pd.read_csv('/Users/shikhararora/Desktop/IIITD_app/static/stops.txt')
-    trips=pd.read_csv('/Users/shikhararora/Desktop/IIITD_app/static/trips.txt')
+    stoptimes=pd.read_csv('static/stop_times.txt')
+    route=pd.read_csv('static/routes.txt')
+    stopnames=pd.read_csv('static/stops.txt')
+    trips=pd.read_csv('static/trips.txt')
     routes={}  # dict to store all routes
     idx=0
     #[2] >str(datetime.now().time()
