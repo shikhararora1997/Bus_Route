@@ -1,0 +1,4 @@
+1) "stops.txt" has multiple occurences of the same stop_name, as only input allowed by the user is the stop_name, 
+so cannot decide which stop is the user talking about.
+
+2) In "stop_times.txt" in many stops the arrival_time/departure_time exceeds 24:00:00.
