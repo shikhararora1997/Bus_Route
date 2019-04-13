@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DelhiBus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style>
+      .container {
+        max-width: 1000px;
+       
+      }
+      .for_padding {
+        margin-top: 20%;
+      }
+    </style>
+  </head>
+  <body>
+   <center>
+    <table border="1" class="for_padding">
+      <th>Bus name</th>
+      <th>Route</th>
+    {% for key,values in routes.items() %}
+    <tr>
+        <th> {{ key }} </th>
+        <th> {{ values }} </th>
+
+    </tr>
+    {% endfor %}
+    </table>
+  </center>  
+  </body>
