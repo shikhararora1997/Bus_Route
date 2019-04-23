@@ -68,11 +68,18 @@ input[type=submit] {
       <h1>Enter Source and Dest</h1>
       <form autocomplete="off" role="form" method='POST' action="{{ url_for('getRoute') }}">
         <div class="autocomplete" style="width:200px;">
-          <input id="myInput" type="text" name="source" class="form-control" placeholder="Enter Station" style="max-width: 300px;" autofocus required>
+          <input id="myInput" type="text" name="source" class="form-control" placeholder="Enter start Station" style="max-width: 300px;" autofocus required>
           <br>
           <input id="myInput2" type="text" name="dest" class="form-control"  placeholder="Enter end Station" style="max-width: 300px;" autofocus required>
           <input id="source_stop_id" type="hidden" name="source_stop_id" class="form-control"  placeholder="Enter end Station" style="max-width: 300px;" required>
           <input id="dest_stop_id" type="hidden" name="dest_stop_id" class="form-control"  placeholder="Enter end Station" style="max-width: 300px;" required>
+
+          <input id="source_lat" type="hidden" name="source_lat" class="form-control"  style="max-width: 300px;" required>
+          <input id="dest_lat" type="hidden" name="dest_lat" class="form-control" style="max-width: 300px;" required>
+
+          <input id="source_lon" type="hidden" name="source_lon" class="form-control"  style="max-width: 300px;" required>
+          <input id="dest_lon" type="hidden" name="dest_lon" class="form-control" style="max-width: 300px;" required>
+
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -110,6 +117,8 @@ input[type=submit] {
                 b.innerHTML += "<input type='hidden' value='" + arr[i].stop_name + "'>";
                 b.innerHTML += "<input type='hidden' value='" + arr[i].stop_id + "'>";
                 
+                b.innerHTML += "<input type='hidden' value='" + arr[i].stop_lat + "'>";
+                b.innerHTML += "<input type='hidden' value='" + arr[i].stop_lon + "'>";
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
                     /*insert the value for the autocomplete text field:*/                    
@@ -117,10 +126,22 @@ input[type=submit] {
                     if(inp.name === "source") {                      
                       let sourceStopId = document.getElementById("source_stop_id");
                       sourceStopId.value = this.getElementsByTagName("input")[1].value;
+
+                      let sourceLat=document.getElementById("source_lat");
+                      sourceLat.value = this.getElementsByTagName("input")[2].value;
+
+                      let sourceLong=document.getElementById("source_lon");
+                      sourceLong.value = this.getElementsByTagName("input")[3].value;
                     }
-                    else if(inp.name === "dest") {
+                    if(inp.name === "dest") {
                       let destStopId = document.getElementById("dest_stop_id");
                       destStopId.value = this.getElementsByTagName("input")[1].value;
+
+                      let destLat=document.getElementById("dest_lat");
+                      destLat.value = this.getElementsByTagName("input")[2].value;
+
+                      let destLong=document.getElementById("dest_lon");
+                      destLong.value = this.getElementsByTagName("input")[3].value;
                     }
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/

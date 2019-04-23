@@ -11,13 +11,16 @@ def hello():
 def getRoute():
         source_stop_id = request.form['source_stop_id']
         dest_stop_id = request.form['dest_stop_id']
-        routes={}
-        print(source_stop_id,dest_stop_id)
+        source_lat = request.form['source_lat']
+        source_lon = request.form['source_lon']
+        dest_lat = request.form['dest_lat']
+        dest_lon = request.form['dest_lon']
+        routes={}       
         routes=directpath(source_stop_id,dest_stop_id)
         if bool(routes):
-              return render_template('output.html',routes=routes)
+               return render_template('map.html',routes=routes)
         else:
-              return render_template('nopath.html',routes=routes)
+               return render_template('nopath.html',routes=routes)
         
 
         
