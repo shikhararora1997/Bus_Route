@@ -12,3 +12,7 @@ after the current time
 `flask run` in the root of the directoy
 
 Please note that no pre-processing of the data was done
+
+The map obtained is somewhat like-
+
+![](map.png)
